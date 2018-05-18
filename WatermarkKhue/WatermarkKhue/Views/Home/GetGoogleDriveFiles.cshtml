@@ -1,0 +1,96 @@
+﻿@model IEnumerable<WatermarkKhue.Models.GoogleDriveFiles>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Download Song";
+}
+
+<h2 style="text-decoration-color:#0bd325"><center>AUDIO WATERMARKING - ĐỒ ÁN CUỐI KỲ MÔN CÁC KỸ THUẬT GIẤU TIN</center></h2>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+<style type="text/css">
+    #header {
+        width: 100%;
+        background-color: #CCCCCC;
+        text-align: center;
+    }
+
+    #layouttable {
+        border: 0px;
+        width: 100%;
+        font-family: 'Segoe UI';
+    }
+
+        #layouttable td.col1 {
+            width: 20%;
+            vertical-align: top;
+        }
+
+        #layouttable td.col2 {
+            width: 60%;
+            vertical-align: top;
+            background-color: #E8E8E8;
+        }
+
+        #layouttable td.col3 {
+            width: 20%;
+            vertical-align: top;
+        }
+</style>
+
+<center>
+
+    <br />
+    <h2 style="color:#ffd800; background-color:#490000">TẢI NHẠC</h2>
+    <br />
+    <table class="table" border="1">
+        <tr id="header">
+            <th>
+                TÊN BÀI HÁT
+            </th>
+            <th>
+                SIZE
+            </th>
+            <th>
+                TẢI VỀ
+            </th>
+        </tr>
+
+        @if (Model.Count() > 0)
+        {
+            foreach (var item in Model)
+            {
+                <tr id="layouttable">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @{
+                            long? KiloByte = @item.Size / 1024;
+                            string NewSize = KiloByte + " KB";
+                        }
+                        @NewSize
+                    </td>
+
+                    <td>
+                        <input type="button" class="DownloadFile" value="Tải về" data-key=@item.Id style="align-content:center" />
+                    </td>
+
+                </tr>
+            }
+        }
+        else
+        {
+            <td colspan="6">No files found</td>
+        }
+
+    </table>
+
+</center>
+
+<script>
+    $(document).on('click', '.DownloadFile', function () {
+        debugger;
+        var fileId = $(this).attr("data-key");
+        window.location.href = '/Home/DownloadFile/' + fileId;
+    });
+</script>

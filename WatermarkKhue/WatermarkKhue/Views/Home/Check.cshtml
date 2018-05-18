@@ -1,0 +1,26 @@
+﻿@model IEnumerable<WatermarkKhue.Models.GoogleDriveFiles>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Check Song";
+}
+
+<h2 style="text-decoration-color:#0bd325"><center>AUDIO WATERMARKING - ĐỒ ÁN CUỐI KỲ MÔN CÁC KỸ THUẬT GIẤU TIN</center></h2>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+<center>
+    <br />
+    <div>
+        <h2 style="color:#ffd800; background-color:#490000">KIỂM TRA BẢN QUYỀN SỐ NHẠC ĐÃ TẢI</h2>
+        <br />
+        @using (Html.BeginForm("Checked", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+        <p>
+            <label for="file">Vui lòng chọn file cần kiểm tra:</label>
+            <br />
+            <input type="file" name="file" id="file" />
+            <br />
+            <input type="submit" value="KIỂM TRA" />
+        </p>
+        }
+    </div>
+</center>
