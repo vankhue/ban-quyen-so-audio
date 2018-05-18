@@ -7,6 +7,8 @@
 
 Video hướng dẫn sử dụng: https://www.youtube.com/watch?v=jUFJjJimxgk
 
+# Chú ý quan trọng: Trước khi chạy project, file GoogleDriveFilesRepository.cs ở dòng 24 và dòng 26 cần cập nhật lại đường dẫn cho 2 file client_secret.json và DriveServiceCredentials.json theo đúng đường dẫn hiện tại của 2 file này
+
 Link download project: https://drive.google.com/file/d/1EzKUAk7f-l-uIDyO_sume2eqlCM43LDz/view?usp=sharing
 
 Sinh viên: Lê Văn Khuê
